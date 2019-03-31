@@ -7,8 +7,8 @@ class TodosListHeader extends Component {
     return (
          <thead>
              <tr>
-                 <th>Task</th>
-                 <th>Action</th>
+                 <th>Задачи</th>
+                 <th>Действия</th>
              </tr>
          </thead> 
     );
