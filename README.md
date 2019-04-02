@@ -27,42 +27,83 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Вопрос 1.
+Пользователь: Для пользователя важно, чтобы приложение было функциональное, но в тоже время и просто в освоении, был красивый тематический дизайн. Именно меня привлекает красота и скорость работы приложения, если у меня мощный смарфон, компьютер, а приложение долго подгружается, то это раздражает
+Менеджер проекта: Затрудняюсь ответить
+Дизайнер: В хорошем приложении выглядит все элегантно, соблюдены все пропорции, все подобрано под данную тематику, подобраны правильные цвета, шрифты и пр. На самом деле сложно ответить.
+Верстальщик: Для верстальщика важно, чтобы был грамотно создан дизайн, из за этого лучше выходит структурированная верстка. Из за этого нет лишнего мусора в стилях, в самом html файле.
+Серверный программист: Необходимо, чтобы была грамотно сделана верстка, чтобы было проще добавлять функционал, натягивать на движок и пр., бывает ужас в верстке, из за этого приходится что то выдумывать, а это может повлиять на производительность.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Вопрос 2.
+Самое главное при создании многостраничного сайта, при той же верстке, это понять, что повторяется, а что нет. Те же footer, header, sidebar повторяются, для них сделать все одинаковое на всех страницах, а для нового контента делать отдельные файлы, и там все прописывать, те же скрипты и стили, чтобы это не влияло на производительность сайта и не захламляло основные файлы.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Вопрос 3.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+На данный вопрос нет ответа, т.к. не доходил еще до этого, Я так понял это в React используется
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Вопрос 4. 
 
-## Learn More
+Наследования в классах:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Создается какой то класс в нем создаются какие то значения а также методы(функции), в которых он совершает какое либо действие и нам нужно, чтобы другой класс делал тоже самое, но с расширенным функционалом, для этого используется свойство prototype.
+Пример: 
+function Animal(name) {
+            this.name = name;
+            this.speed = 0;
+        }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+        Animal.prototype.stop = function() { // Animal.prototype - писать нужно именно так, т.к. это открывает доступ на наследование
+            this.speed = 0;
+            alert( this.name + ' стоит' );
+        }
+}
 
-### Code Splitting
+function Rabbit(name) {
+  Animal.apply(this, arguments); // Тем самым Класс Animal передает этому классу свои аргументы
+}
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Rabbit.prototype = Object.create(Animal.prototype); // происходит наследование
+Rabbit.prototype.__proto__ = Animal.prototype;// Можно писать так, как у объектов, но IE10 не поддерживает
 
-### Analyzing the Bundle Size
+Также наследование в классах в стиле ООП, в то же React с помощью extends
+class App extends Component { // Теперь этот класс может использовать технологии React
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+}
 
-### Making a Progressive Web App
+В объектах это простисходит с помощью __proto__
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Пример:
+var animal = {
+  eats: true
+};
+var rabbit = {
+  jumps: true
+};
 
-### Advanced Configuration
+rabbit.__proto__ = animal;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+// в rabbit можно найти оба свойства
+alert( rabbit.jumps ); // true
+alert( rabbit.eats ); // true
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Вопрос 5.
 
-### `npm run build` fails to minify
+Можно использовать для тестов библиотеки Mocha и Chai. К сожалению опыта работы с ними не было, Я проверял все в ручную
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Вопрос 6.
+
+Если Я интегрирую форму на worpderss, то там можно подключить плагин с формой и настроить под себя, там идут проверки на заполнение полей и т.д. Если же самописно, то сделаю через php + ajax, и настрою проверку полей через регулярные выражения. Сдалаю на свой взгляд как лучше или обращусь за советом, если будут проблемы
+
+Вопрос 7. 
+На данный момент я вручную проверяю код через отладчик и консоль. При написинии я использую текстовые редакторы, которые упрощают написание.
+
+Вопрос 8.
+
+Учебники learn.javascript.ru, youtube, современный учебник по JS, группы в ВК. Хотел бы осовить еще Python, написание ботов или back-end для сайтов
+
+Вопрос 9.
+
+Меня зовут Сергей Краснояров. Я живу в г. Новоуральск, Свердловкая область, в нашем городе с IT проблемы, а переехать пока возможности нет и поэтому ищу удаленную работу. Я дружелюбный, приятный на общение человек.С удовольствием могу изучать новый материал, и очень хочу работать в компании. Как таковых глобальных проектов не было, но у меня в репозиториях есть работы как и верстка страниц, так и создание игрушек на JS и просто приложений, типа чеклиста, стикеров. Также работал с Node js, там создавал небольшую базу данных, используя XML для хранения информации. Еще подрабатываю на фрилансе, т.к. не могу устроиться у себя в городе, беру в основном задания, в которых нужно что то доработать на сайте. Надеюсь, что Я смогу внести свой вклад в Вашу компанию и набраться у Вас того бесценного опыта, которого просто так не получить и поработать в команде. Спасибо, что уделили мне время.
+
